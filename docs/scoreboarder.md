@@ -8,7 +8,7 @@ Minecraft Bedrock の ScriptAPI で Scoreboard の管理をより、
 遅延をかけているため、トップレベルで使用可能です。
 
 ## constructor
-### `constructor(name,displayName)`
+### `constructor(name,displayName?)`
 
 - **name** スコアボードの名前
 - **displayName** スコアボードのディスプレイネーム
@@ -22,7 +22,7 @@ Minecraft Bedrock の ScriptAPI で Scoreboard の管理をより、
 
 ## Objective 操作
 
-### `setDisplay(mode,sort)`
+### `setDisplay(mode,sort?)`
 ディスプレイにスコアボードを表示します
 ### `delete()`
 スコアボードを削除します
@@ -47,10 +47,10 @@ Minecraft Bedrock の ScriptAPI で Scoreboard の管理をより、
 ターゲットのスコアを減算します
 ### `multiply(targets,score)`
 ターゲットのスコアを乗算します
-### `divide(targets,score,mode)`
+### `divide(targets,score,mode?)`
 ターゲットのスコアを除算します
 小数点の場合、切り捨て、切り上げ、四捨五入をmodeから選択可能
-### `random(targets,range,each)`
+### `random(targets,range,each?)`
 ターゲットのスコアをランダムに設定します
 - **range** `{ max: number, min: number }`
 - **each** `boolean` ターゲットが複数いる場合、それぞれにランダムなスコアを代入
