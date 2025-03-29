@@ -37,11 +37,11 @@ Minecraft Bedrock の ScriptAPI で Scoreboard の管理をより、
 > *number*
 
 ### `get(targets,score): number | Map<Targets,Number>`
+- *補足* ターゲットが複数の場合 Map で返されます
 ターゲットのスコアを取得します
 ### `getStrings(target,separator): string`
 - **target** `Entity | Player | string`
 - **separator** `boolean` 3桁区切りにします
-- *補足* ターゲットが複数の場合 Map で返されます
 
 ターゲットのスコアを文字列として取得します
 ### `set(targets,score)`
