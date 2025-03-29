@@ -29,10 +29,15 @@ Minecraft Bedrock の ScriptAPI で Scoreboard の管理をより、
 
 ## スコア 操作
 
+> targets 
+> Player | Entity | string | (Player | Entity | string)[]
+> 
+
 ### `get(targets,score)`
 ターゲットのスコアを取得します
 ### `getStrings(target,separator)`
 ターゲットのスコアを文字列として取得します
+- **target** Entity | Player | string
 - **separator** `boolean` 3桁区切りにします
 ### `set(targets,score)`
 ターゲットのスコアを指定した数値します
