@@ -32,7 +32,7 @@ export default class ScoreBoarder {
     }
 
     /**
-     * @typedef {Array<import("@minecraft/server").Entity | import("@minecraft/server").Player | import("@minecraft/server").ScoreboardIdentity> | import("@minecraft/server").Entity | import("@minecraft/server").Player | import("@minecraft/server").ScoreboardIdentity | string} Targets
+     * @typedef {Array<import("@minecraft/server").Entity | import("@minecraft/server").Player | import("@minecraft/server").ScoreboardIdentity>} Targets
      */
 
     /**
@@ -42,36 +42,34 @@ export default class ScoreBoarder {
 
     /**
      * Add score to targets
-     * @param {Targets} targets
+     * @param {Targets | Target} targets
      * @param {number} score 
      */
     add(targets, score) {
-        for (const target of [targets].flat()) this.#scoreboard.addScore(target, score);
+        for (const target of [targets].flat()) this.#scoreboard.addScore(target, Math.floor(score));
     };
 
     /**
      * Remove score to targets
-     * @param {Targets} targets
+     * @param {Targets | Target} targets
      * @param {number} score 
      */
-    remove(targets, score) {
-        for (const target of [targets].flat()) this.#scoreboard.addScore(target, -score);
-    };
+    remove(targets, score) { this.add(targets,-score); };
 
     /**
      * Multiply score to targets
-     * @param {Targets} targets
+     * @param {Targets | Target} targets
      * @param {number} score 
      */
     multiply(targets, score) {
         for (const target of [targets].flat()) {
-            this.#scoreboard.setScore(target, (this.#scoreboard.getScore(target) || 0) * score);
+            this.#scoreboard.setScore(target, Math.floor((this.#scoreboard.getScore(target) || 0) * score));
         }
     }
 
     /**
      * Divide score to targets
-     * @param {Targets} targets
+     * @param {Targets | Target} targets
      * @param {number} score 
      * @param {"ceil" | "floor" | "round"} [mode] @default "ceil"
      */
@@ -143,14 +141,14 @@ export default class ScoreBoarder {
      */
     /**
      * Get score to targets
-     * @param {Target | Targets} target
+     * @param {Target | Targets} targets
      * @returns {number | Map<Targets,Number>}
      */
-    get(target) {
-        if (Array.isArray(target)) {
+    get(targets) {
+        if (Array.isArray(targets)) {
             const ScoreTargetsMap = new Map();
 
-            target.flat().map(target =>
+            targets.flat().map(target =>
                 ScoreTargetsMap.set(
                     target,
                     this.#scoreboard.getScore(target) || this.default
@@ -160,7 +158,7 @@ export default class ScoreBoarder {
             return ScoreTargetsMap;
         } else {
             try {
-                return this.#scoreboard.getScore(target) ?? this.default
+                return this.#scoreboard.getScore(targets) ?? this.default
             } catch {
                 return this.default;
             }
