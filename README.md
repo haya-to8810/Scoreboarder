@@ -1,33 +1,33 @@
 # Scoreboarder Class Documentation
 
-##概要
+## 概要
 
 Minecraft Bedrock の ScriptAPI で Scoreboard の管理をより、
 簡易的に操作するために設計されたクラスです。
 
 遅延をかけているため、トップレベルで使用可能です。
 
-##constructor
+## constructor
 ### `constructor(name,displayName)`
 
 - **name** スコアボードの名前
 - **displayName** スコアボードのディスプレイネーム
 
-##Instance Property
+## Instance Property
 
 ### `default`
 スコアがなかった場合のデフォルト数値
 
-##Instance Methods
+## Instance Methods
 
-###Objective 操作
+### Objective 操作
 
 ### `setDisplay(mode,sort)`
 ディスプレイにスコアボードを表示します
 ### `delete()`
 スコアボードを削除します
 
-###スコア 操作
+### スコア 操作
 
 ### `get(targets,score)`
 ターゲットのスコアを指定した数値します
