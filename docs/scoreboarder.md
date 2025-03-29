@@ -37,7 +37,8 @@ Minecraft Bedrock の ScriptAPI で Scoreboard の管理をより、
 > *number*
 
 ### `get(targets,score): number | Map<Targets,Number>`
-- *補足* ターゲットが複数の場合 Map で返されます
+- *補足* - ターゲットが複数の場合 Map で返されます
+
 ターゲットのスコアを取得します
 ### `getStrings(target,separator): string`
 - **target** `Entity | Player | string`
