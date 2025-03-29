@@ -36,7 +36,7 @@ Minecraft Bedrock の ScriptAPI で Scoreboard の管理をより、
 ターゲットのスコアを取得します
 ### `getStrings(target,separator)`
 ターゲットのスコアを文字列として取得します
-- **target** Entity | Player | string
+- **target** `Entity | Player | string`
 - **separator** `boolean` 3桁区切りにします
 ### `set(targets,score)`
 ターゲットのスコアを指定した数値します
