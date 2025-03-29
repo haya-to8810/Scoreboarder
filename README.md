@@ -20,14 +20,14 @@ Minecraft Bedrock の ScriptAPI で Scoreboard の管理をより、
 
 ## Instance Methods
 
-### Objective 操作
+## Objective 操作
 
 ### `setDisplay(mode,sort)`
 ディスプレイにスコアボードを表示します
 ### `delete()`
 スコアボードを削除します
 
-### スコア 操作
+## スコア 操作
 
 ### `get(targets,score)`
 ターゲットのスコアを指定した数値します
