@@ -30,7 +30,10 @@ Minecraft Bedrock の ScriptAPI で Scoreboard の管理をより、
 ## スコア 操作
 
 ### `get(targets,score)`
-ターゲットのスコアを指定した数値します
+ターゲットのスコアを取得します
+### `getStrings(target,separator)`
+ターゲットのスコアを文字列として取得します
+- **separator** `boolean` 3桁区切りにします
 ### `set(targets,score)`
 ターゲットのスコアを指定した数値します
 
