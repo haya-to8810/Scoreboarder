@@ -14,7 +14,7 @@ Minecraft Bedrock の ScriptAPI で Scoreboard の管理をより、
 
 ## Instance Property
 
-### `default`
+### `default: number`
 スコアがなかった場合のデフォルト数値
 
 ## Instance Methods
@@ -36,11 +36,12 @@ Minecraft Bedrock の ScriptAPI で Scoreboard の管理をより、
 > **score** -
 > *number*
 
-### `get(targets,score)`
+### `get(targets,score): number | Map<Targets,Number>`
 ターゲットのスコアを取得します
-### `getStrings(target,separator)`
+### `getStrings(target,separator): string`
 - **target** `Entity | Player | string`
 - **separator** `boolean` 3桁区切りにします
+- *補足* ターゲットが複数の場合 Map で返されます
 
 ターゲットのスコアを文字列として取得します
 ### `set(targets,score)`
