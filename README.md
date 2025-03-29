@@ -29,9 +29,8 @@ Minecraft Bedrock の ScriptAPI で Scoreboard の管理をより、
 
 ## スコア 操作
 
-> targets 
-> Player | Entity | string | (Player | Entity | string)[]
-> 
+> **targets** -
+> *Player | Entity | string | (Player | Entity | string)[]*
 
 ### `get(targets,score)`
 ターゲットのスコアを取得します
