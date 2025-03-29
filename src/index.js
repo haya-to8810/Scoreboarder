@@ -24,7 +24,7 @@ export default class ScoreBoarder {
 
     /**
      * Set score to DisplaySlot
-     * @param {"Belowname" | "Sidebar"} mode 
+     * @param {keyof typeof DisplaySlotId} mode 
      * @param {import("@minecraft/server").ObjectiveSortOrder} [sort]
      */
     setDisplay(mode, sort) {
