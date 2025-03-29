@@ -1,58 +1,29 @@
-# Scoreboarder Class Documentation
+# Scoreboarder ライブラリ
 
-## 概要
+スコアボード管理のための 簡易的な ScriptAPI ライブラリです
 
-Minecraft Bedrock の ScriptAPI で Scoreboard の管理をより、
-簡易的に操作するために設計されたクラスです。
+[ダウンロード](https://github.com/haya-to8810/Server/releases/download/minecraft/server.js)
 
-遅延をかけているため、トップレベルで使用可能です。
+> [!NOTE]
+> 質問やエラーは以下のDiscordアカウントへ
+> .shoborn
 
-## constructor
-### `constructor(name,displayName)`
+## 使い方
+1. アドオンをインポートし、ワールドに適応
+2. ベータAPI の有効化
+3. 使いたいアドオンで、ファイルを インポートする
 
-- **name** スコアボードの名前
-- **displayName** スコアボードのディスプレイネーム
+## Example Code
 
-## Instance Property
+[Documentation](docs/scoreboarder.md)
 
-### `default`
-スコアがなかった場合のデフォルト数値
+```javascript
+import { world } from "@minecraft/server";
+import ScoreBoarder from "./scoreBoarder.js";
 
-## Instance Methods
+const money = new ScoreBoarder("Money");
 
-## Objective 操作
-
-### `setDisplay(mode,sort)`
-ディスプレイにスコアボードを表示します
-### `delete()`
-スコアボードを削除します
-
-## スコア 操作
-
-> **targets** -
-> *Player | Entity | string | (Player | Entity | string)[]*
-
-### `get(targets,score)`
-ターゲットのスコアを取得します
-### `getStrings(target,separator)`
-ターゲットのスコアを文字列として取得します
-- **target** Entity | Player | string
-- **separator** `boolean` 3桁区切りにします
-### `set(targets,score)`
-ターゲットのスコアを指定した数値します
-
-### `add(targets,score)`
-ターゲットのスコアを加算します
-### `remove(targets,score)`
-ターゲットのスコアを減算します
-### `multiply(targets,score)`
-ターゲットのスコアを乗算します
-### `divide(targets,score,mode)`
-ターゲットのスコアを除算します
-小数点の場合、切り捨て、切り上げ、四捨五入をmodeから選択可能
-### `random(targets,range,each)`
-ターゲットのスコアをランダムに設定します
-- **range** `{ max: number, min: number }`
-- **each** `boolean` ターゲットが複数いる場合、それぞれにランダムなスコアを代入
-### `reset(targets)`
-ターゲットのスコアをリセットします
+for(const player of world.getPlayers()){
+    player.onScreenDisplay.setActionBar(`purse: ${money.get(player)}`)
+}
+```
